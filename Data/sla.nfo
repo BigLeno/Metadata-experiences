@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<episodedetails>
+  <plot>O passado de Mars e Fana é revelado, e o combate contra o espírito de fogo ganha um prisma extra de combate por uma amizade e a expiação de um antigo pecado.</plot>
+  <lockdata>false</lockdata>
+  <dateadded>2024-01-15 03:51:25</dateadded>
+  <title>O Mundo Prometido</title>
+  <rating>10</rating>
+  <year>2018</year>
+  <tvdbid>6919413</tvdbid>
+  <runtime>24</runtime>
+  <art>
+    <poster>/mnt/NAS/Anime e desenho/Black Clover/Dublado/S4/metadata/Black Clover (TV) - 161.jpg</poster>
+  </art>
+  <actor>
+    <name>Gakuto Kajiwara</name>
+    <role>Asta (voice)</role>
+    <type>Actor</type>
+    <sortorder>0</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/G/Gakuto Kajiwara/folder.png</thumb>
+  </actor>
+  <actor>
+    <name>Nobunaga Shimazaki</name>
+    <role>Yuno (voice)</role>
+    <type>Actor</type>
+    <sortorder>1</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/N/Nobunaga Shimazaki/folder.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Kana Yuuki</name>
+    <role>Noelle Silva (voice)</role>
+    <type>Actor</type>
+    <sortorder>2</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/K/Kana Yuuki/folder.png</thumb>
+  </actor>
+  <actor>
+    <name>Junichi Suwabe</name>
+    <role>Yami Sukehiro (voice)</role>
+    <type>Actor</type>
+    <sortorder>3</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/J/Junichi Suwabe/folder.png</thumb>
+  </actor>
+  <actor>
+    <name>Genki Muro</name>
+    <role>Magna Swing (voice)</role>
+    <type>Actor</type>
+    <sortorder>4</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/G/Genki Muro/folder.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Ayumu Murase</name>
+    <role>Luck Voltia (voice)</role>
+    <type>Actor</type>
+    <sortorder>5</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/A/Ayumu Murase/folder.png</thumb>
+  </actor>
+  <actor>
+    <name>Jun Fukuyama</name>
+    <role>Finral Roulacase (voice)</role>
+    <type>Actor</type>
+    <sortorder>6</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/J/Jun Fukuyama/folder.png</thumb>
+  </actor>
+  <actor>
+    <name>Satoshi Hino</name>
+    <role>Gauche Adlai (voice)</role>
+    <type>Actor</type>
+    <sortorder>7</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/S/Satoshi Hino/folder.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Kiyono Yasuno</name>
+    <role>Charmy Papittoson (voice)</role>
+    <type>Actor</type>
+    <sortorder>8</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/K/Kiyono Yasuno/folder.png</thumb>
+  </actor>
+  <actor>
+    <name>Nana Mizuki</name>
+    <role>Vanessa Enoteca (voice)</role>
+    <type>Actor</type>
+    <sortorder>9</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/N/Nana Mizuki/folder.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Minami Takahashi</name>
+    <role>Grey (voice)</role>
+    <type>Actor</type>
+    <sortorder>10</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/M/Minami Takahashi/folder.png</thumb>
+  </actor>
+  <actor>
+    <name>Masayuki Akasaka</name>
+    <role>Grey, Transformed (voice)</role>
+    <type>Actor</type>
+    <sortorder>11</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/M/Masayuki Akasaka/folder.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Kenichirou Matsuda</name>
+    <role>Gordon Agrippa (voice)</role>
+    <type>Actor</type>
+    <sortorder>12</sortorder>
+    <thumb>/mnt/NAS/Streaming/metadados/People/K/Kenichirou Matsuda/folder.png</thumb>
+  </actor>
+  <actor>
+    <name>Hikaru Midorikawa</name>
+    <role>Zora Ideale (voice)</role>
+    <type>Actor</type>
+    <sortorder>13</sortorder>
+    <thumb>/var/lib/emby/metadata/library/0e/0e8cc3fc4ce742c1b70560bff5c2648e/folder.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Takuma Terashima</name>
+    <role>Klaus Lunette (voice)</role>
+    <type>Actor</type>
+    <sortorder>14</sortorder>
+  </actor>
+  <showtitle>Black Clover</showtitle>
+  <episode>61</episode>
+  <season>1</season>
+  <aired>2018-12-04</aired>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <codec>hevc</codec>
+        <micodec>hevc</micodec>
+        <bitrate>2499269</bitrate>
+        <width>1920</width>
+        <height>1080</height>
+        <aspect>16:9</aspect>
+        <aspectratio>16:9</aspectratio>
+        <framerate>23.976025</framerate>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+        <duration>23</duration>
+        <durationinseconds>1434</durationinseconds>
+      </video>
+      <audio>
+        <codec>aac</codec>
+        <micodec>aac</micodec>
+        <bitrate>152128</bitrate>
+        <language>por</language>
+        <scantype>progressive</scantype>
+        <channels>2</channels>
+        <samplingrate>44100</samplingrate>
+        <default>False</default>
+        <forced>False</forced>
+      </audio>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>por</language>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </subtitle>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>spa</language>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </subtitle>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>spa</language>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </subtitle>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>eng</language>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+      </subtitle>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>ita</language>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </subtitle>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>rus</language>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </subtitle>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>ara</language>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </subtitle>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>fre</language>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </subtitle>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>ger</language>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+</episodedetails>
