@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <episodedetails>
-  <plot>Yuno regressa a Clover para encontrar o QG do Alvorecer Dourado atacado por membros da Tríade das Trevas de Spade. Furioso ao ver os companheiros feridos, ele contra-ataca com toda sua força.</plot>
+  <plot>Asta e os Touros Negros enfrentam Fana, e Fanzell encara as forças do Reino Diamond, de onde também fazia parte. Os líderes do ataque de Diamond calham de ser dois ex-alunos de Fanzell, Ladros e Mars. O motivo da rebelião de Fanzell contra seu reino é revelada, e suas tentativas de argumentar com seus ex-alunos se provam em vão.</plot>
   <lockdata>false</lockdata>
-  <dateadded>2024-01-16 13:37:08</dateadded>
-  <title>O Poder de Zenon</title>
+  <dateadded>2024-01-16 08:21:52</dateadded>
+  <title>A Expiação do Desertor</title>
   <year>2016</year>
   <runtime>24</runtime>
   <anidbid>179961</anidbid>
   <art>
-    <poster>/mnt/NAS/Anime e desenho/Black Clover/Dublado/Season 1/metadata/Black Clover Season 1 Episode 161 Português (Brasil).jpg</poster>
+    <poster>/mnt/NAS/Anime e desenho/Black Clover/Dublado/Season 1/metadata/Black Clover Season 1 Episode 60 Português (Brasil).jpg</poster>
   </art>
   <showtitle>Black Clover</showtitle>
-  <episode>161</episode>
+  <episode>60</episode>
   <season>1</season>
   <aired>2016-11-27</aired>
   <fileinfo>
@@ -19,7 +19,7 @@
       <video>
         <codec>h264</codec>
         <micodec>h264</micodec>
-        <bitrate>7958962</bitrate>
+        <bitrate>7994760</bitrate>
         <width>1920</width>
         <height>1080</height>
         <aspect>16:9</aspect>
@@ -46,22 +46,7 @@
       <subtitle>
         <codec>mov_text</codec>
         <micodec>mov_text</micodec>
-        <language>por</language>
-        <scantype>progressive</scantype>
-        <default>False</default>
-        <forced>False</forced>
-      </subtitle>
-      <subtitle>
-        <codec>mov_text</codec>
-        <micodec>mov_text</micodec>
-        <language>eng</language>
-        <scantype>progressive</scantype>
-        <default>False</default>
-        <forced>False</forced>
-      </subtitle>
-      <subtitle>
-        <codec>mov_text</codec>
-        <micodec>mov_text</micodec>
+        <bitrate>1</bitrate>
         <language>por</language>
         <scantype>progressive</scantype>
         <default>False</default>

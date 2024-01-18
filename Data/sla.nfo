@@ -144,7 +144,7 @@
         <scantype>progressive</scantype>
         <channels>2</channels>
         <samplingrate>44100</samplingrate>
-        <default>False</default>
+        <default>True</default>
         <forced>False</forced>
       </audio>
       <subtitle>
@@ -158,7 +158,7 @@
       <subtitle>
         <codec>ass</codec>
         <micodec>ass</micodec>
-        <language>spa</language>
+        <language>po</language>
         <scantype>progressive</scantype>
         <default>False</default>
         <forced>False</forced>
@@ -176,7 +176,7 @@
         <micodec>ass</micodec>
         <language>eng</language>
         <scantype>progressive</scantype>
-        <default>True</default>
+        <default>False</default>
         <forced>False</forced>
       </subtitle>
       <subtitle>
