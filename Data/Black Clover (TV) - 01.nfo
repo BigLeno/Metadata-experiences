@@ -8,8 +8,7 @@
   <runtime>14</runtime>
   <anidbid>179961</anidbid>
   <art>
-  
-      <poster>nananan</poster>
+      <poster>n</poster>
   </art>
   <showtitle>Black Clover</showtitle>
   <episode>1</episode>
@@ -48,13 +47,13 @@
         <micodec>ass</micodec>
         <language>eng</language>
         <scantype>progressive</scantype>
-        <default>True</default>
+        <default>False</default>
         <forced>False</forced>
       </subtitle>
       <subtitle>
         <codec>ass</codec>
         <micodec>ass</micodec>
-        <language>ara</language>
+        <language>por</language>
         <scantype>progressive</scantype>
         <default>False</default>
         <forced>False</forced>

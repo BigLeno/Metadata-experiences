@@ -65,7 +65,9 @@ def enable_portuguese_subtitles(data:str) -> str:
             data = data.replace(subtitle, new_subtitle)
             logging.info("""Legenda em português habilitada""")
             portuguese_enabled = True
-        if not portuguese_enabled:
+
+    if not portuguese_enabled:
+        for subtitle in subtitles:
             if '<language>eng</language>' in subtitle:
                 new_subtitle = re.sub(r'<default>False</default>', '<default>True</default>', subtitle)
                 data = data.replace(subtitle, new_subtitle)
@@ -74,7 +76,6 @@ def enable_portuguese_subtitles(data:str) -> str:
     
     if not portuguese_enabled and not english_enabled:
         logging.info("""Nenhuma legenda encontrada. Nenhuma legenda habilitada.""")
-        return ''
 
     return data
 
