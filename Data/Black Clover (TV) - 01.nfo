@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <episodedetails>
-  <plot>nanna</plot>
+  <plot>anananan</plot>
   <lockdata>false</lockdata>
   <dateadded>1014-01-15 01:39:13</dateadded>
   <title>Complete Movie</title>
   <year>1016</year>
   <runtime>14</runtime>
   <anidbid>179961</anidbid>
-  <art><poster>lallaa</poster></art>
+  <art>
+  
+      <poster>nananan</poster>
+  </art>
   <showtitle>Black Clover</showtitle>
   <episode>1</episode>
   <season>1</season>
@@ -33,19 +36,19 @@
         <codec>aac</codec>
         <micodec>aac</micodec>
         <bitrate>98934</bitrate>
-        <language>por</language>
+        <language>eng</language>
         <scantype>progressive</scantype>
         <channels>1</channels>
         <samplingrate>44100</samplingrate>
-        <default>False</default>
+        <default>True</default>
         <forced>False</forced>
       </audio>
       <subtitle>
         <codec>ass</codec>
         <micodec>ass</micodec>
-        <language>por</language>
+        <language>eng</language>
         <scantype>progressive</scantype>
-        <default>False</default>
+        <default>True</default>
         <forced>False</forced>
       </subtitle>
       <subtitle>
@@ -99,9 +102,9 @@
       <subtitle>
         <codec>ass</codec>
         <micodec>ass</micodec>
-        <language>por</language>
+        <language>eng</language>
         <scantype>progressive</scantype>
-        <default>False</default>
+        <default>True</default>
         <forced>False</forced>
       </subtitle>
       <subtitle>

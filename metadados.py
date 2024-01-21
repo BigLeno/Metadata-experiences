@@ -65,9 +65,7 @@ def enable_portuguese_subtitles(data:str) -> str:
             data = data.replace(subtitle, new_subtitle)
             logging.info("""Legenda em português habilitada""")
             portuguese_enabled = True
-
-    if not portuguese_enabled:
-        for subtitle in subtitles:
+        if not portuguese_enabled:
             if '<language>eng</language>' in subtitle:
                 new_subtitle = re.sub(r'<default>False</default>', '<default>True</default>', subtitle)
                 data = data.replace(subtitle, new_subtitle)
@@ -80,62 +78,24 @@ def enable_portuguese_subtitles(data:str) -> str:
 
     return data
 
-def handle_poster_change(archive:str, data:str, change:str) -> str:
-    """Manipula a mudança na tag <poster>."""
-    lines = data.split('\n')
-    match_poster = re.search(r'<art><poster>(.*?)</poster></art>', data)
-    match_bad_art = re.search(r'<art />', data)
-
-    if match_poster:
-        poster_old = match_poster.group(1)
-        if change.upper() == 'L':
-            poster_new = poster_old.replace("Dublado", "Legendado")
-            data = enable_portuguese_subtitles(data)
-        elif change.upper() == 'D':
-            poster_new = poster_old.replace("Legendado", "Dublado")
-            data = disable_subtitles(data)
-        else:
-            logging.error(f"""Erro ao indicar a mudança desejada: {change}, no arquivo {archive}""")
-            return
+def handle_poster_change(data, poster_path):
+    if '<art />' in data:
+        logging.error("""A tag <art /> não está formatada corretamente.""")
+        poster_new = f"<art><poster>{poster_path}</poster></art>"
+        data = data.replace('<art />', poster_new)
+    elif '<poster>' in data and '</poster>' in data:
+        poster_old = re.search('<poster>(.*?)</poster>', data).group()
+        poster_new = f"<poster>{poster_path}</poster>"
         data = data.replace(poster_old, poster_new)
-    elif match_bad_art:
-        change_poster = formatted_input("A tag <poster> não está bem formatada. Deseja alterar o texto para a nova tag <poster>? (S/N): ")
-        if change_poster.upper() == 'S':
-            poster_text = formatted_input("Por favor, insira o texto para a nova tag <poster>: ")
-            poster_new = f"<art><poster>{poster_text}</poster></art>"
-            data = data.replace('<art />', poster_new)
-            if change.upper() == 'L':
-                data = enable_portuguese_subtitles(data)
-            elif change.upper() == 'D':
-                data = disable_subtitles(data)
-            else:
-                logging.error(f"""Erro ao indicar a mudança desejada: {change}, no arquivo {archive}""")
-        elif change_poster.upper() == 'N':
-            logging.info("Nenhuma alteração feita no poster.")
-        else:
-            logging.error(f"""Erro ao indicar a mudança desejada: "{change_poster}", no poster. \n Tente novamente entre "S" ou "N".""")
-            
     else:
-        add_poster = formatted_input("A tag <poster> não existe. Deseja adicionar um texto para a nova tag <poster>? (S/N): ")
-        if add_poster.upper() == 'S':
-            poster_text = formatted_input("Por favor, insira o texto para a nova tag <poster>: ")
-            poster_new = f"  <art><poster>{poster_text}</poster></art>"
-            lines.insert(9, poster_new)
-            data = '\n'.join(lines)
-            if change.upper() == 'L':
-                data = enable_portuguese_subtitles(data)
-            elif change.upper() == 'D':
-                data = disable_subtitles(data)
-            else:
-                logging.error(f"""Erro ao indicar a mudança desejada: {change}, no arquivo {archive}""")
-        elif add_poster.upper() == 'N':
-            logging.info("Nenhuma alteração feita no poster.")
-        else:
-            logging.error(f"""Erro ao indicar a mudança desejada: "{add_poster}", no poster. \n Tente novamente entre "S" ou "N".""")
-
+        logging.info("""A tag <art /> não existe.""")
+        poster_new = f"  <art><poster>{poster_path}</poster></art>"
+        lines = data.split('\n')
+        lines.insert(9, poster_new)
+        data = '\n'.join(lines)
     return data
 
-def handle_plot_change(archive, data) -> str:
+def handle_plot_change(data) -> str:
     """Manipula a mudança na tag <plot>."""
     lines = data.split('\n')
     match_plot = re.search(r'<plot>(.*?)</plot>', data)
@@ -143,7 +103,7 @@ def handle_plot_change(archive, data) -> str:
 
     if match_plot:
         plot_old = match_plot.group(1)
-        change = formatted_input(f"""A sinopse atual do \n\t{archive} \n\té: \n\t"{plot_old}". \n\tDeseja alterar? (S/N): """)
+        change = formatted_input(f"""A sinopse atual é: \n\t-->  "{plot_old}". \n\tDeseja alterar? (S/N): """)
         if change.upper() == 'S':
             plot_new = formatted_input("Por favor, insira a nova sinopse: ")
             data = data.replace(plot_old, plot_new)
@@ -183,7 +143,7 @@ def handle_language_change(archive:str, data:str) -> str:
 
     if match_language:
         language_old = match_language.group(1)
-        change = formatted_input(f"A linguagem atual do \n\t{archive} \n\té: \n\t-->{language_old}. \n\tDeseja alterar? (S/N): ")
+        change = formatted_input(f"A linguagem atual té: \n\t-->    {language_old}. \n\tDeseja alterar? (S/N): ")
         if change.upper() == 'S':
             language_new = formatted_input("""Por favor, insira a nova linguagem \n\t\t\tExemplo: \n\t\t\t    por, eng, jpn     : """)
             data = data.replace(language_old, language_new)
@@ -237,70 +197,65 @@ def handle_episode_change(data):
 
     return data
 
-def handle_season_change(data):
+def handle_season_change(data, season):
     """Manipula a mudança na tag <season>."""
     lines = data.split('\n')
     match_season = re.search(r'<episodedetails>.*?<season>(.*?)</season>.*?</episodedetails>', data, re.DOTALL)
 
     if match_season:
         season_old = match_season.group(1)
-        change = formatted_input(f"A temporada atual é: {season_old}. Deseja alterar? (S/N): ")
-        if change.upper() == 'S':
-            season_new = formatted_input("Por favor, insira a nova temporada: ")
-            data = data.replace(season_old, season_new)
-        elif change.upper() == 'N':
-            logging.info("Nenhuma alteração feita na temporada.")
-        else:
-            logging.error(f"""Erro ao indicar a mudança desejada: "{change}", na temporada. \n Tente novamente entre "S" ou "N".""")
-
+        data = data.replace(season_old, season)
     else:
-        add_season = formatted_input("A tag <season> não existe. Deseja adicionar uma temporada? (S/N): ")
-        if add_season.upper() == 'S':
-            season_new = formatted_input("Por favor, insira a temporada: ")
-            for i, line in enumerate(lines):
-                if '<episode>' in line:
-                    lines.insert(i+1, f'  <season>{season_new}</season>')
-                    data = '\n'.join(lines)
-                    break
-        elif add_season.upper() == 'N':
-            logging.info("Nenhuma alteração feita na temporada.")
-        else:
-            logging.error(f"""Erro ao indicar a mudança desejada: "{add_season}", na temporada. \n Tente novamente entre "S" ou "N".""")
+        for i, line in enumerate(lines):
+            if '<showtitle>' in line:
+                lines.insert(i+1, f'  <season>{season}</season>')
+                data = '\n'.join(lines)
+                break
 
     return data
     
-def get_change(directory:str, archive:str):
-    """Solicita ao usuário que indique a mudança que deseja fazer"""
-    print("\n\nIndicação de mudanças:\n")
-    change = formatted_input(f"""Indique a mudança que deseja fazer em: \n\t--> "{archive}"
-                             \n(Digite "D" para mudar de Legendado para Dublado ou "L" para mudar de Dublado para Legendado): """)
-    data = open_archive(directory, archive)
-    data = handle_poster_change(archive, data, change)
-    data = handle_plot_change(archive, data)
-    data = handle_language_change(archive, data)
-    data = handle_episode_change(data)
-    data = handle_season_change(data)
-    write_archive(directory, archive, data)
 
 def get_and_modify():
     """Método que vai receber o arquivo e modificar o texto"""
     create_log()
-    logging.info("""Iniciando o sistema de modificação de metadados....\n""")
+    logging.info("""Iniciando o sistema de modificação de metadados....""")
     file_or_directory = formatted_input("Você deseja processar um diretório ou um arquivo único? (D/A): ")
     if file_or_directory.upper() == 'D':
         directory = formatted_input("Por favor, insira o nome do diretório: ")
         files = get_files_from_directory(directory)
     elif file_or_directory.upper() == 'A':
-        directory = formatted_input("Por favor, insira o nome do diretório do arquivo: ")
+        directory = formatted_input("Por favor, insira o nome do diretório: ")
         file = formatted_input("Por favor, insira o nome do arquivo: ")
         files = [file]
     else:
         logging.error(f"""Erro ao indicar a escolha desejada: "{file_or_directory}". \n Tente novamente entre "D" ou "A".""")
         return
 
+    poster_path = formatted_input("Por favor, insira o caminho do poster: ")
+    season = formatted_input("Por favor, insira a temporada: ")
+    subtitle_option = formatted_input("O arquivo é para legendado ou dublado? (L/D): ")
+
     for file in files:
-        get_change(directory, file)
+        change_file = formatted_input(f"Deseja alterar o arquivo {file}? (S/N): ")
+        if change_file.upper() == 'S':
+            data = open_archive(directory, file)
+            data = handle_poster_change(data, poster_path)
+            data = handle_plot_change(data)
+            data = handle_language_change(file, data)
+            data = handle_episode_change(data)
+            data = handle_season_change(data, season)
+            if subtitle_option.upper() == 'L':
+                data = enable_portuguese_subtitles(data)
+            elif subtitle_option.upper() == 'D':
+                data = disable_subtitles(data)
+            write_archive(directory, file, data)
 
         
 if __name__ == '__main__':
-    get_and_modify()
+    try:
+        get_and_modify()
+    except KeyboardInterrupt:
+        print("")
+        logging.info("Programa encerrado pelo usuário.")
+        exit(-1)
+
