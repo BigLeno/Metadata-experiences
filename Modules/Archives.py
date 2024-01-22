@@ -1,8 +1,9 @@
 
-from logging import error
-from os.path import isdir
+from logging import error, info
+from os.path import isdir, isfile, join
 from os import listdir
-
+from random import randint
+from time import sleep
 
 class Archives:
     """Classe que define os métodos para manipulação de arquivos"""
@@ -23,8 +24,15 @@ class Archives:
     def write_archive(self, directory:str, archive:str, data:str) -> str:
         """Tenta escrever o arquivo"""
         try:
+            info("Escrevendo arquivo")
+            for _ in range(randint(1, 5)):
+                print(".", end="", flush=True)
+                sleep(1)
+            print("")
             with open(f'{directory}/{archive}', 'w', encoding='utf-8') as file:
                 file.write(data)
+            sleep(.5)
+            info("Arquivo escrito com sucesso!")
             return data
         except Exception as e:
             error(f"Erro ao escrever o arquivo: {archive}")
@@ -34,7 +42,13 @@ class Archives:
         """Método que recebe um diretório e retorna uma lista de arquivos"""
 
         try:
+            info("Pegando arquivos do diretório")
+            for _ in range(randint(1, 5)):
+                print(".", end="", flush=True)
+                sleep(1)
+            print("")
             files = [file for file in listdir(directory) if file.endswith(extension)]
+            info("Arquivos obtidos com sucesso!")
             return files
         except Exception as e:
             error(f"Erro ao listar arquivos no diretório: {e}")
@@ -55,3 +69,18 @@ class Archives:
             if self.is_valid_directory(path):
                 break
         return path
+    
+    def get_single_file(self, directory):
+        while True:
+            file = self.logger.formatted_input("Por favor, insira o nome do arquivo: ")
+            if not file.endswith('.nfo'):
+                if '.' not in file:
+                    if isfile(join(directory, file + '.nfo')):
+                        file += '.nfo'
+                    else:
+                        error(f"""O arquivo "{file}" não existe no diretório especificado. Por favor, insira um nome de arquivo válido.""")
+                        continue
+                elif not isfile(join(directory, file)):
+                    error(f"""O arquivo "{file}" não existe no diretório especificado. Por favor, insira um nome de arquivo válido.""")
+                    continue
+            return file

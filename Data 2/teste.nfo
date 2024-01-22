@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <episodedetails>
-  <plot>anananan</plot>
+  <plot>alterando itens do sistema</plot>
   <lockdata>false</lockdata>
   <dateadded>1014-01-15 01:39:13</dateadded>
   <title>Complete Movie</title>
@@ -8,7 +8,7 @@
   <runtime>14</runtime>
   <anidbid>179961</anidbid>
   <art>
-      <poster>n</poster>
+      <poster>data</poster>
   </art>
   <showtitle>Black Clover</showtitle>
   <episode>1</episode>
@@ -35,7 +35,7 @@
         <codec>aac</codec>
         <micodec>aac</micodec>
         <bitrate>98934</bitrate>
-        <language>eng</language>
+        <language>por</language>
         <scantype>progressive</scantype>
         <channels>1</channels>
         <samplingrate>44100</samplingrate>
@@ -45,9 +45,9 @@
       <subtitle>
         <codec>ass</codec>
         <micodec>ass</micodec>
-        <language>eng</language>
+        <language>por</language>
         <scantype>progressive</scantype>
-        <default>False</default>
+        <default>True</default>
         <forced>False</forced>
       </subtitle>
       <subtitle>
@@ -55,7 +55,7 @@
         <micodec>ass</micodec>
         <language>por</language>
         <scantype>progressive</scantype>
-        <default>False</default>
+        <default>True</default>
         <forced>False</forced>
       </subtitle>
       <subtitle>
@@ -101,7 +101,7 @@
       <subtitle>
         <codec>ass</codec>
         <micodec>ass</micodec>
-        <language>eng</language>
+        <language>por</language>
         <scantype>progressive</scantype>
         <default>True</default>
         <forced>False</forced>

@@ -1,17 +1,16 @@
 
 from re import findall, sub, DOTALL
-from logging import info
+from logging import info, error
 
 
     
 
 class Subtitles:
-    
     """Módulo responsável pelas legendas"""
 
-    def __init__(self) -> None:
+    def __init__(self, logger) -> None:
         """Módulo responsável pelas legendas"""
-        pass
+        self.logger = logger
 
     def disable_subtitles(self,data:str) -> str:
         """Método que desabilita todas as legendas."""
@@ -34,6 +33,7 @@ class Subtitles:
                 data = data.replace(subtitle, new_subtitle)
                 info("""Legenda em português habilitada""")
                 portuguese_enabled = True
+                break
 
         if not portuguese_enabled:
             for subtitle in subtitles:
@@ -48,3 +48,11 @@ class Subtitles:
             info("""Nenhuma legenda encontrada. Nenhuma legenda habilitada.""")
 
         return data
+    
+    def get_subtitle_option(self):
+        while True:
+            subtitle_option = self.logger.formatted_input("O arquivo é para legendado ou dublado? (L/D): ")
+            if subtitle_option.upper() in ['L', 'D']:
+                return subtitle_option.upper()
+            else:
+                error(f"""Erro ao indicar a escolha desejada: "{subtitle_option}". \n Tente novamente entre "L" ou "D".""")
