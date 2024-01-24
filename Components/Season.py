@@ -16,7 +16,7 @@ class Season:
 
     def handle_no_season(self, data, season):
         lines = data.split('\n')
-        if '<episodedetails>' not in data and '<season>' not in data and '</season>' not in data:
+        if '<episodedetails>' in data and '<season>' not in data and '</season>' not in data:
             for i, line in enumerate(lines):
                 if '<showtitle>' in line:
                     lines.insert(i+1, f'  <season>{season}</season>')
