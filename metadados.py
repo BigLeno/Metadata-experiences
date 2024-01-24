@@ -8,12 +8,13 @@ from Modules.Archives import Archives
 from Modules.Subtitles import Subtitles
 
 from Components.Plot import Plot
+from Components.Title import Title
 from Components.Poster import Poster
 from Components.Season import Season
 from Components.Episode import Episode
 from Components.Language import Language
 
-class Metadados(Poster, Plot, Language, Episode, Season): 
+class Metadados(Poster, Plot, Language, Episode, Season, Title): 
     """Classe que define os métodos para manipulação de metadados"""
     def __init__(self) -> None:
         """Classe que define os métodos para manipulação de metadados"""
@@ -50,6 +51,12 @@ class Metadados(Poster, Plot, Language, Episode, Season):
         data = self.handle_existing_season(data, season)
         data = self.handle_no_season(data, season)
         return data
+    
+    def handle_title_change(self, data):
+        """Manipula a mudança na tag <title>."""
+        data = self.handle_existing_title(data)
+        data = self.handle_no_title(data)
+        return data
 
     def get_files(self):
         """Método que vai receber o arquivo e modificar o texto"""
@@ -77,6 +84,7 @@ class Metadados(Poster, Plot, Language, Episode, Season):
                 data = self.handle_language_change(data)
                 data = self.handle_episode_change(data)
                 data = self.handle_season_change(data, season)
+                data = self.handle_title_change(data)
                 if subtitle_option.upper() == 'L':
                     data = self.legendas.enable_portuguese_subtitles(data)
                 elif subtitle_option.upper() == 'D':
