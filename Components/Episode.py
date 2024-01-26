@@ -9,18 +9,22 @@ class Episode:
         """Classe responsável por adicionar o episódio ao arquivo XML."""
         pass
 
-    def handle_existing_episode(self, data):
+    def handle_existing_episode(self, data) -> str:
+        """Método responsável por adicionar o episódio ao arquivo XML."""
         match_episode = search(r'<episodedetails>.*?<episode>(.*?)</episode>.*?</episodedetails>', data, DOTALL)
         if match_episode:
             episode_old = match_episode.group(1)
-            change = self.logger.formatted_input(f"O episódio atual é: {episode_old}. Deseja alterar? (S/N): ")
-            if change.upper() == 'S':
-                episode_new = self.logger.formatted_input("Por favor, insira o novo episódio: ")
-                data = data.replace(f'<episode>{episode_old}</episode>', f'<episode>{episode_new}</episode>')
-            elif change.upper() == 'N':
-                info("Nenhuma alteração feita no episódio.")
-            else:
-                error(f"""Erro ao indicar a mudança desejada: "{change}", no episódio. \n Tente novamente entre "S" ou "N".""")
+            while True:
+                change = self.logger.formatted_input(f"O episódio atual é: {episode_old}. Deseja alterar? (S/N): ")
+                if change.upper() == 'S':
+                    episode_new = self.logger.formatted_input("Por favor, insira o novo episódio: ")
+                    data = data.replace(f'<episode>{episode_old}</episode>', f'<episode>{episode_new}</episode>')
+                    break
+                elif change.upper() == 'N':
+                    info("Nenhuma alteração feita no episódio.")
+                    break
+                else:
+                    error(f"""Entrada inválida: "{change}". Por favor, insira "S" ou "N".""")
         return data
 
     def handle_no_episode(self, data):
