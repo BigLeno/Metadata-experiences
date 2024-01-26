@@ -4,12 +4,34 @@
 
 Este projeto é uma ferramenta de manipulação de metadados XML para arquivos de vídeo. Ele permite que você altere várias tags, incluindo `<poster>`, `<plot>`, `<language>`, `<episode>`, `<season>` e `<title>`.
 
+## Compatibilidade
+
+Este projeto foi idealizado para a plataforma Jellyfin. Embora possa funcionar com outras plataformas de mídia, não garantimos total compatibilidade ou suporte.
+
 ## Como usar
 
 1. Clone o repositório para o seu computador local.
 2. Navegue até o diretório do projeto no terminal.
 3. Instale as dependências do projeto com o comando `pip install -r requirements.txt`.
 4. Execute o script principal com o comando `python metadata.py`.
+
+## Configuração do Ambiente Virtual
+
+É recomendado criar um ambiente virtual para instalar as dependências do projeto. Isso pode evitar conflitos entre as dependências deste projeto e as de outros projetos no seu sistema.
+
+### No Windows
+
+1. Navegue até o diretório do projeto no terminal.
+2. Crie o ambiente virtual com o comando `python -m venv venv`.
+3. Ative o ambiente virtual com o comando `.\venv\Scripts\activate`.
+4. Agora você pode instalar as dependências com o comando `pip install -r requirements.txt`.
+
+### No Linux
+
+1. Navegue até o diretório do projeto no terminal.
+2. Crie o ambiente virtual com o comando `python3 -m venv venv`.
+3. Ative o ambiente virtual com o comando `source venv/bin/activate`.
+4. Agora você pode instalar as dependências com o comando `pip install -r requirements.txt`.
 
 Ao executar o script, você será solicitado a inserir as informações necessárias para alterar as tags desejadas.
 
